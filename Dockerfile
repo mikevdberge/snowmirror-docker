@@ -1,4 +1,3 @@
-FROM ubuntu 
 
 LABEL maintainer="SnowMirror Docker Maintainers <mike.van.den.berge@gmail.com>"
 LABEL vendor1="GuideVision"
@@ -16,10 +15,19 @@ ARG USERNAME=snowmirror
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
+ARG BUILD_VERSION_ARG=unset
+
+FROM ubuntu 
+
+
 ARG SNOWMIRROR_VERSION
 ARG JDK_VERSION
 ARG JDK2_VERSION
 ARG JDK3_VERSION
+ARG USERNAME
+ARG USER_UID
+ARG USER_GID
+ARG BUILD_VERSION_ARG
 
 RUN set -x \
     # Create the user
@@ -54,6 +62,10 @@ COPY ./entrypoint.sh /
 COPY ./run.sh /opt/snowmirror/
 
 ENV PORT=9090
+
+ARG BUILD_VERSION_ARG
+
+ENV BUILD_VERSION=$BUILD_VERSION_ARG
 
 EXPOSE 80 443 9090
 
