@@ -33,4 +33,4 @@ jobs:
           docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
           docker buildx create --name multibuilder
           docker buildx use multibuilder
-          docker buildx build --platform linux/amd64,linux/arm64 -t mikevdberge/snowmirror:${VERSION}-ci .
+          docker buildx build --platform linux/amd64,linux/arm64 -t mikevandenberge/snowmirror:${VERSION}-ci .
