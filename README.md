@@ -18,5 +18,5 @@ $ mkdir $HOME/.local/share/snowmirror/conf
 ```bash
 $ sudo docker run -d --name snowmirror --restart=always -p 9090:9090 \
       -v $HOME/.local/share/snowmirror:/opt/snowmirror/conf \
-      -e 'MODE=native' mikevdberge/snowmirror
+      -e 'MODE=native' mikevandenberge/snowmirror
 ```
