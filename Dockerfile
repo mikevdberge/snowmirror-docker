@@ -1,8 +1,9 @@
+FROM ubuntu 
 
 LABEL maintainer="SnowMirror Docker Maintainers <mike.van.den.berge@gmail.com>"
 LABEL vendor1="GuideVision"
 
-#docker build .
+#docker build . -t mikevdberge/snowmirror:version4.14.1
 #docker tag . mikevdberge/snowmirror:version4.14.1
 # docker container run -it -d --name snowmirrorcontainer -p 9090:9090 mikevdberge/snowmirror:latest
 
@@ -16,9 +17,6 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
 ARG BUILD_VERSION_ARG=unset
-
-FROM ubuntu 
-
 
 ARG SNOWMIRROR_VERSION
 ARG JDK_VERSION
