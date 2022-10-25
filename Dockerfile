@@ -3,11 +3,7 @@ FROM ubuntu
 LABEL maintainer="SnowMirror Docker Maintainers <mike.van.den.berge@gmail.com>"
 LABEL vendor1="GuideVision"
 
-#docker build . -t mikevdberge/snowmirror:version4.14.1
-#docker tag . mikevdberge/snowmirror:version4.14.1
-# docker container run -it -d --name snowmirrorcontainer -p 9090:9090 mikevdberge/snowmirror:latest
-
-ARG SNOWMIRROR_VERSION=4.14.1
+ARG SNOWMIRROR_VERSION=4.13.6
 ARG JDK_VERSION=11.0.16.1%2B1
 ARG JDK2_VERSION=11.0.16.1_1
 ARG JDK3_VERSION=11.0.16.1+1
