@@ -54,6 +54,7 @@ RUN set -x \
 
 COPY ./entrypoint.sh /
 COPY ./run.sh /opt/snowmirror/
+RUN ["chmod", "+x", "/entrypoint.sh"]
 
 ENV PORT=9090
 
@@ -70,6 +71,7 @@ EXPOSE 80 443 9090
 VOLUME ["/opt/snowmirror/conf", "/opt/snowmirror/logs"]
 
 ENTRYPOINT ["/entrypoint.sh"]
+
 CMD ["run"]
 
 #HEALTHCHECK --interval=20s --timeout=10s --retries=3 \
