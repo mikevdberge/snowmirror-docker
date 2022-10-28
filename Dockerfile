@@ -55,6 +55,7 @@ RUN set -x \
 COPY ./entrypoint.sh /
 COPY ./run.sh /opt/snowmirror/
 RUN ["chmod", "+x", "/entrypoint.sh"]
+RUN ["chmod", "+x", "/opt/snowmirror/run.sh"]
 
 ENV PORT=9090
 
