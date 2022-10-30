@@ -44,6 +44,7 @@ RUN set -x \
     # Configure the Eclipse Adoptium apt repository
     && echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list \
     # Install the Temurin JDK 
+    && apt update \
     && apt install temurin-17-jdk < /dev/null > /dev/null \
     # Get SnowMirror
 	&& wget -nv https://snow-mirror.com/downloads-enterprise/snow-mirror-${SNOWMIRROR_VERSION}.zip -O /tmp/snow-mirror-${SNOWMIRROR_VERSION}.zip \
