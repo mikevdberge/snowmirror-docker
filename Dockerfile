@@ -44,7 +44,7 @@ RUN set -x \
     # Configure the Eclipse Adoptium apt repository
     && echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list \
     # Install the Temurin JDK 
-    && apt update \
+    &&& apt-get -qq update \
     && apt-get -qqy install --no-install-recommends --no-install-suggests \
     temurin-11-jdk < /dev/null > /dev/null \
     # Get SnowMirror
