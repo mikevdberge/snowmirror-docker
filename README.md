@@ -5,6 +5,9 @@ This project creates a small dockerized SnowMiror.
 [Docker Images:  
     ![Docker Hub](https://shields.io/docker/pulls/mikevandenberge/snowmirror)](https://hub.docker.com/u/mikevandenberge/)
     
+[License:  
+    [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]((https://github.com/mikevdberge/snowmirror-docker/blob/master/LICENSE))    
+    
 [![Actions Status](https://github.com/mikevdberge/snowmirror-docker/workflows/Release%20production%20version/badge.svg)](https://github.com/mikevdberge/snowmirror-docker/actions)    
 
 ## Getting started
