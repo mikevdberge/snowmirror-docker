@@ -2,6 +2,8 @@
 
 This project creates a small dockerized SnowMiror.
 
+[Docker Images:  
+    ![Docker Hub](https://shields.io/docker/pulls/mikevandenberge/snowmirror)](https://hub.docker.com/u/mikevandenberge/)
 
 ## Getting started
 
