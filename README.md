@@ -16,7 +16,7 @@ This project creates a small dockerized SnowMiror.
 This allows you to update `SnowMirror` by just deleting and recreating the container
 
 ```bash
-$ mkdir $HOME/.local/share/snowmirror/conf
+mkdir $HOME/.local/share/snowmirror/conf
 ```
 
 
@@ -30,5 +30,5 @@ $ sudo docker run -d --name snowmirror --restart=always -p 9090:9090 \
 
 3. Attach to a running container
 ```bash
-$ docker container exec -it snowmirror /bin/bash
+docker container exec -it snowmirror /bin/bash
 ```
