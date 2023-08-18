@@ -56,6 +56,7 @@ RUN set -x \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ./entrypoint.sh /
+COPY ./h2.jar /opt/snowmirror/lib
 #COPY ./run.sh /opt/snowmirror/
 RUN ["chmod", "+x", "/entrypoint.sh"]
 RUN ["chmod", "+x", "/opt/snowmirror/run.sh"]
