@@ -78,7 +78,7 @@ VOLUME ["/opt/snowmirror/logs"]
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["/opt/snowmirror/run.sh"]
+CMD ["run.sh"]
 
 #HEALTHCHECK --interval=20s --timeout=10s --retries=3 \
 #    CMD curl -f http://localhost:${PORT} || exit 1    
