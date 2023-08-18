@@ -30,5 +30,5 @@ $ sudo docker run -d --name snowmirror --restart=always -p 9090:9090 \
 
 3. Attach to a running container
 ```bash
-$ docker container exec -it snowmirror-dev /bin/bash
+$ docker container exec -it snowmirror /bin/bash
 ```
