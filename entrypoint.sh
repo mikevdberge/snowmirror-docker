@@ -16,4 +16,5 @@ export HOST_IP=$(hostname -I | awk '{print $1}')
 
 # Start as SnowMirror user
 echo ${USER_UID}
+cd /opt/snowmirror
 exec setpriv --reuid=${USER_UID} --regid=${USER_GID} --init-groups --inh-caps=$caps /opt/snowmirror/run.sh "$@"
