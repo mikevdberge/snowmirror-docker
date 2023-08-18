@@ -9,7 +9,7 @@ ARG SNOWMIRROR_DIR=/opt/snowmirror
 
 
 ARG USERNAME=snowmirror
-ARG USER_UID=1000
+ARG USER_UID=1001
 ARG USER_GID=$USER_UID
 
 ARG BUILD_VERSION_ARG=unset
@@ -72,7 +72,8 @@ ENV LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 
 EXPOSE 80 443 9090
 
-VOLUME ["/opt/snowmirror/snowMirror.properties","/opt/snowmirror/conf", "/opt/snowmirror/logs"]
+#VOLUME ["/opt/snowmirror/snowMirror.properties","/opt/snowmirror/conf", "/opt/snowmirror/logs"]
+VOLUME ["/opt/snowmirror/logs"]
 
 ENTRYPOINT ["/entrypoint.sh"]
 
