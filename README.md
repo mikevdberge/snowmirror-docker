@@ -27,3 +27,8 @@ $ sudo docker run -d --name snowmirror --restart=always -p 9090:9090 \
       -v $HOME/.local/share/snowmirror:/opt/snowmirror/conf \
       -e 'MODE=native' mikevandenberge/snowmirror
 ```
+
+3. Attach to a running container
+```bash
+$ docker container exec -it snowmirror-dev /bin/bash
+```
