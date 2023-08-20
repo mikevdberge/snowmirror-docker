@@ -7,7 +7,6 @@ ARG SNOWMIRROR_VERSION=5.1.13
 ARG JAVA_VERSION=17
 ARG SNOWMIRROR_DIR=/opt/snowmirror
 
-
 ARG USERNAME=snowmirror
 ARG USER_UID=1001
 ARG USER_GID=$USER_UID
@@ -55,9 +54,10 @@ RUN set -x \
     && apt-get autoremove --purge  -y \
     && rm -rf /var/lib/apt/lists/*
 
-COPY ./entrypoint.sh /
 COPY ./h2.jar /opt/snowmirror/lib
-#COPY ./run.sh /opt/snowmirror/
+COPY ./entrypoint.sh /
+COPY ./run.sh /opt/snowmirror/
+
 RUN ["chmod", "+x", "/entrypoint.sh"]
 RUN ["chmod", "+x", "/opt/snowmirror/run.sh"]
 
@@ -78,7 +78,4 @@ VOLUME ["/opt/snowmirror/logs"]
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["run.sh"]
-
-#HEALTHCHECK --interval=20s --timeout=10s --retries=3 \
-#    CMD curl -f http://localhost:${PORT} || exit 1    
+CMD ["run"]
