@@ -6,7 +6,4 @@ services:
       - "443:443"
     volumes:
       - "./snowMirror.properties:/opt/snowmirror/snowMirror.properties"
-      - "./conf/web.xml:/opt/snowmirror/conf/web.xml"
-      - "./conf/server.xml:/opt/snowmirror/conf/server.xml"
-      - "./certs/snowMirror-https.jks:/opt/snowmirror/snowMirror-https.jks"
       - "./logs:/opt/snowmirror/logs"
