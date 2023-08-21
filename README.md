@@ -19,16 +19,25 @@ This allows you to update `SnowMirror` by just deleting and recreating the conta
 mkdir $HOME/.local/share/snowmirror/conf
 ```
 
-
-2. Start a container
+2. Download the docker-compose.yml file
+```bash
+services:
+    snowmirror:
+      container_name: snowmirror
+      image: mikevandenberge/snowmirror:latest
+    ports:
+      - "80:80"
+    volumes:
+    - "./snowMirror.properties:/opt/snowmirror/snowMirror.properties"
+    - "./logs:/opt/snowmirror/logs"
+```
+3. Start the container
 
 ```bash
-$ sudo docker run -d --name snowmirror --restart=always -p 9090:9090 \
-      -v $HOME/.local/share/snowmirror:/opt/snowmirror/conf \
-      -e 'MODE=native' mikevandenberge/snowmirror
+$ sudo docker compose up -d
 ```
 
-3. Attach to a running container
+4. Attach to a running container
 ```bash
 docker container exec -it snowmirror /bin/bash
 ```
