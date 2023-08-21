@@ -3,7 +3,7 @@ services:
     container_name: snowmirror
     image: mikevandenberge/snowmirror:latest
     ports:
-      - "443:443"
+      - "80:80"
     volumes:
       - "./snowMirror.properties:/opt/snowmirror/snowMirror.properties"
       - "./logs:/opt/snowmirror/logs"
