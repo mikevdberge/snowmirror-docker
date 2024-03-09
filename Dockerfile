@@ -3,7 +3,7 @@ FROM ubuntu
 LABEL maintainer="SnowMirror Docker Maintainers <mike.van.den.berge@gmail.com>"
 LABEL vendor1="GuideVision"
 
-ARG SNOWMIRROR_VERSION=5.6.3
+ARG SNOWMIRROR_VERSION=5.6.4
 ARG JAVA_VERSION=17
 ARG SNOWMIRROR_DIR=/opt/snowmirror
 
