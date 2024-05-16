@@ -20,15 +20,23 @@ mkdir $HOME/.local/share/snowmirror/conf
 ```
 2. Download the snowmirror.properties file
 ```bash
-services:
-    snowmirror:
-      container_name: snowmirror
-      image: mikevandenberge/snowmirror:latest
-    ports:
-      - "80:80"
-    volumes:
-    - "./snowMirror.properties:/opt/snowmirror/snowMirror.properties"
-    - "./logs:/opt/snowmirror/logs"
+### SnowMirror base URL ###
+snowMirror.scheme = http
+snowMirror.host = localhost
+snowMirror.port = 9090
+snowMirror.controlport = 8005
+snowMirror.context =
+
+### Installation ###
+snowMirror.installation.name = SnowMirror
+
+### SnowMirror configuration database
+config.db.type = h2
+config.jdbc.url = jdbc:h2:${snowMirror.dataDir}/h2/snowmirror
+config.jdbc.username = sa
+config.jdbc.password = sa
+config.jdbc.schema =
+config.jdbc.encryption = IGNORE
 ```
 3. Download the docker-compose.yml file
 ```bash
