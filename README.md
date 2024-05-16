@@ -16,9 +16,10 @@ This project creates a small dockerized SnowMiror.
 This allows you to update `SnowMirror` by just deleting and recreating the container
 
 ```bash
-mkdir $HOME/.local/share/snowmirror/conf
+mkdir $HOME/.local/share/snowmirror/
+cd $HOME/.local/share/snowmirror/
 ```
-2. Download the snowmirror.properties file
+2. Download the snowmirror.properties file in the snowmirror directory
 ```bash
 ### SnowMirror base URL ###
 snowMirror.scheme = http
@@ -38,14 +39,14 @@ config.jdbc.password = sa
 config.jdbc.schema =
 config.jdbc.encryption = IGNORE
 ```
-3. Download the docker-compose.yml file
+3. Download the docker-compose.yml file in the snowmirror directory
 ```bash
 services:
     snowmirror:
       container_name: snowmirror
       image: mikevandenberge/snowmirror:latest
     ports:
-      - "80:80"
+      - "9090:9090"
     volumes:
     - "./snowMirror.properties:/opt/snowmirror/snowMirror.properties"
     - "./logs:/opt/snowmirror/logs"
@@ -60,3 +61,5 @@ $ sudo docker compose up -d
 ```bash
 docker container exec -it snowmirror /bin/bash
 ```
+6. Open your browser and goto http://localhost:9090
+
