@@ -55,6 +55,7 @@ RUN set -x \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ./h2.jar /opt/snowmirror/lib
+COPY ./opentelemetry-javaagent.jar /opt/snowmirror/lib
 COPY ./entrypoint.sh /
 COPY ./run.sh /opt/snowmirror/
 
