@@ -77,7 +77,7 @@ fi
 echo "Memory settings: Xms=$APP_XMS, Xmx=$APP_XMX"
 
 # OpenTelemetry related env vars
-export JAVA_TOOL_OPTIONS="-javaagent:$_curr/libs/opentelemetry-javaagent.jar"
+export JAVA_TOOL_OPTIONS="-javaagent:$_curr/lib/opentelemetry-javaagent.jar"
 export OTEL_SERVICE_NAME="SnowMirror"
 # The logging exporter prints the name of the span along with its attributes to stdout. It's mainly used for testing and debugging.
 export OTEL_TRACES_EXPORTER=console
