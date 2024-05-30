@@ -78,9 +78,7 @@ echo "Memory settings: Xms=$APP_XMS, Xmx=$APP_XMX"
 
 # OpenTelemetry related env vars
 export JAVA_TOOL_OPTIONS="-javaagent:$_curr/lib/opentelemetry-javaagent.jar"
-export OTEL_SERVICE_NAME="SnowMirror"
-# The logging exporter prints the name of the span along with its attributes to stdout. It's mainly used for testing and debugging.
-export OTEL_TRACES_EXPORTER=console
+export OTEL_SERVICE_NAME="snowmirror"
 
 export JAVA_OPTS="-Duser.timezone=UTC -Duser.country=en -Duser.language=en -DsnowMirror.logDir=$_curr/logs -DsnowMirror.dataDir=file://$_curr/snow-mirror/data -DsnowMirror.properties.location=file://$_curr/snow-mirror/conf/ -DsnowMirror.config.db.location=file://$_curr/snowMirror.properties -DsnowMirror.config.location=file://$_curr/snow-mirror/conf/ -DsnowMirror.themesDir="file:///$_curr/snow-mirror-themes/" -Dspring.profiles.active=live -Dtomcat.http.port=$APP_PORT -Dtomcat.http.controlport=$CONTROL_PORT -Dtomcat.snowMirror.context=$APP_CONTEXT $APP_JAVA_OPTS"
 export CATALINA_OPTS="-Xms$APP_XMS -Xmx$APP_XMX $APP_CATALINA_OPTS"
