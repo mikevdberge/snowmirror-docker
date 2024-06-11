@@ -30,7 +30,6 @@ RUN set -x \
 	&& apt-get -qqy install  --no-install-recommends --no-install-suggests \
     wget \
     apt-transport-https \
-    apt-utils \
     libtcnative-1 \
     libarchive-tools \
     ca-certificates < /dev/null > /dev/null \
