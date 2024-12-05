@@ -1,5 +1,3 @@
-[![Banner Image](./assets/how_it_works_horizontal.svg)][0]
-
 # Dockerized SnowMirror
 [![Price](https://img.shields.io/badge/price-FREE-0098f7.svg)](https://github.com/obsidiandynamics/kafdrop/blob/master/LICENSE)
 [![Docker Hub](https://shields.io/docker/pulls/mikevandenberge/snowmirror)](https://hub.docker.com/u/mikevandenberge/)
@@ -7,7 +5,7 @@
 [![Actions Status](https://github.com/mikevdberge/snowmirror-docker/workflows/Release%20production%20version/badge.svg)](https://github.com/mikevdberge/snowmirror-docker/actions)    
 
 This project creates a small dockerized SnowMiror.
-
+[![Banner Image](./assets/how_it_works_horizontal.svg)][0]
 ## Getting started
 
 1. Create a directory for the configuration
