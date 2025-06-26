@@ -1,13 +1,11 @@
 name: Release production version
-
+run-name: Release SnowMirror version ${{ inputs.version }}
 on:
   workflow_dispatch:
     inputs:
       version:
         description: 'Version'     
         required: true
-
-
 jobs:
   setup:
     runs-on: ubuntu-latest
