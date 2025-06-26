@@ -1,5 +1,5 @@
 name: Release production version
-run-name: Release SnowMirror version ${{ inputs.version }}
+run-name: SnowMirror ${{ inputs.version }}
 on:
   workflow_dispatch:
     inputs:
