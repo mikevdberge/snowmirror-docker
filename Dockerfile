@@ -37,7 +37,7 @@ RUN set -x \
     && mkdir -p /etc/apt/keyrings \   
 	&& wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | apt-key add -
     # Configure the Eclipse Adoptium apt repository
-	&& echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
+	&& echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list \
     # Install the Temurin JDK 
     && apt-get -qq update \
     && apt-get -qqy install --no-install-recommends --no-install-suggests \
