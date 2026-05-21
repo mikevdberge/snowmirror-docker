@@ -4,7 +4,7 @@ FROM ubuntu
 LABEL maintainer="SnowMirror Docker Maintainers <mike.van.den.berge@gmail.com>"
 LABEL vendor1="GuideVision"
 
-ARG JAVA_VERSION=23
+ARG JAVA_VERSION=25
 ARG SNOWMIRROR_DIR=/opt/snowmirror
 
 ARG USERNAME=snowmirror
@@ -39,7 +39,6 @@ RUN set -x \
     # Configure the Eclipse Adoptium apt repository
 	&& echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
     # Install the Temurin JDK 
-	&& apt-get install temurin-25-jdk
     && apt-get -qq update \
     && apt-get -qqy install --no-install-recommends --no-install-suggests \
     temurin-${JAVA_VERSION}-jdk < /dev/null > /dev/null \
