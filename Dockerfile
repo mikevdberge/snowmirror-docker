@@ -29,21 +29,21 @@ RUN set -x \
     && apt-get -qq update \
 	&& apt-get -qqy install  --no-install-recommends --no-install-suggests \
     wget \
+    gpg \
     apt-transport-https \
     libtcnative-1 \
     libarchive-tools \
     ca-certificates < /dev/null > /dev/null \
     # Download the Eclipse Adoptium GPG key
-    && mkdir -p /etc/apt/keyrings \   
-	&& wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | apt-key add - \
+    && mkdir -p /etc/apt/keyrings \
+    && wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor -o /etc/apt/keyrings/adoptium.gpg \
     # Configure the Eclipse Adoptium apt repository
-	&& echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list \
+	&& echo "deb [signed-by=/etc/apt/keyrings/adoptium.gpg] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list \
     # Install the Temurin JDK 
     && apt-get -qq update \
-    && apt-get -qqy install --no-install-recommends --no-install-suggests \
-    temurin-${JAVA_VERSION}-jdk < /dev/null > /dev/null \
+    && apt-get -qqy install --no-install-recommends --no-install-suggests temurin-${JAVA_VERSION}-jdk < /dev/null > /dev/null \
     # Get SnowMirror
-	&& wget -nv https://snow-mirror.com/downloads-enterprise/snow-mirror-${SNOWMIRROR_VERSION}.zip -O /tmp/snow-mirror-${SNOWMIRROR_VERSION}.zip \
+	&& wget -nv https://snow-mirror.com/downloads-enterprise/snow-mirror-${SNOWMIRROR_VERSION}.zip -O /tmp/snow-mirror-${SNOWMIRROR_VERSION}.zip \               
     && mkdir /opt/snowmirror \
     && bsdtar xvf /tmp/snow-mirror-${SNOWMIRROR_VERSION}.zip --strip-components=1 -C /opt/snowmirror \
     && rm -rf /tmp/snow-mirror-${SNOWMIRROR_VERSION}.zip \
