@@ -11,6 +11,8 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read   # ✅ minimal required
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@06116385d9baf250c9f4dcb4858b16962ea869c3 # v4.1.0
@@ -20,6 +22,8 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read   # ✅ minimal required    
     needs: setup
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
